@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مسارك الهندسي</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Cairo', sans-serif;
+}
+
+body{
+    background:#fffdf7;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* ================= الدوائر الزخرفية ================= */
+
+body::before{
+    content:"";
+    position:absolute;
+    width:450px;
+    height:450px;
+    left:-150px;
+    top:-150px;
+    background:radial-gradient(circle,#ffb300 0%, #ff6f00 70%);
+    border-radius:50%;
+    opacity:0.15;
+    z-index:0;
+    animation: floatSlow 8s ease-in-out infinite;
+}
+
+body::after{
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+    right:-120px;
+    bottom:-120px;
+    background:radial-gradient(circle,#ff9800 0%, #ff6f00 70%);
+    border-radius:50%;
+    opacity:0.12;
+    z-index:0;
+    animation: floatSlow 10s ease-in-out infinite;
+}
+
+.extra-circle{
+    position:absolute;
+    width:220px;
+    height:220px;
+    background:radial-gradient(circle,#ffc107 0%, #ff9800 70%);
+    border-radius:50%;
+    top:80%;
+    left:15%;
+    opacity:0.08;
+    z-index:0;
+    animation: floatSlow 12s ease-in-out infinite;
+}
+
+@keyframes floatSlow{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-20px);}
+    100%{transform:translateY(0);}
+}
+
+/* ================= الهيدر ================= */
+
+header{
+    padding:20px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:relative;
+    z-index:2;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:800;
+    color:#ff6f00;
+}
+
+nav a{
+    text-decoration:none;
+    color:#555;
+    margin-right:20px;
+    font-weight:600;
+    position:relative;
+}
+
+nav a::after{
+    content:"";
+    position:absolute;
+    width:0;
+    height:2px;
+    background:#ff6f00;
+    bottom:-5px;
+    right:0;
+    transition:0.3s;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+/* ================= القسم الرئيسي ================= */
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:80px;
+    padding:40px;
+    position:relative;
+    z-index:2;
+    flex-wrap: wrap; /* يسمح بالتفاف العناصر عند صغر الشاشة */
+}
+
+.content{
+    max-width:600px;
+    width: 100%;
+}
+
+.content h1{
+    font-size:42px;
+    color:#ff6f00;
+    margin-bottom:20px;
+    animation: fadeIn 1.2s ease;
+}
+
+.content p{
+    font-size:18px;
+    color:#555;
+    line-height:1.9;
+    margin-bottom:30px;
+    animation: fadeIn 1.8s ease;
+}
+
+.start-btn{
+    padding:15px 45px;
+    font-size:18px;
+    border:none;
+    border-radius:50px;
+    background: linear-gradient(135deg,#ff6f00);
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.start-btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 10px 25px rgba(255,111,0,0.4);
+}
+
+/* ================= مربع الصور الجديد ================= */
+
+.images{
+    display:flex;
+    gap:25px;
+    align-items:center;
+    justify-content:center;
+    padding:35px;
+    border-radius:50px;
+    background:#fffdf7;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    animation: floatBox 6s ease-in-out infinite;
+    transition:0.4s ease;
+    flex-wrap: wrap; /* يسمح بالتفاف الصور */
+}
+
+.images:hover{
+    transform:scale(1.03);
+}
+
+.images img{
+    width:190px;
+    height:190px;
+    object-fit:cover;
+    border-radius:20px;
+    transition:0.4s ease;
+}
+
+.images img:hover{
+    transform:translateY(-8px) scale(1.05);
+}
+
+/* أنيميشن */
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes floatBox{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+    100%{transform:translateY(0);}
+}
+
+/* ================= الجوال ================= */
+
+@media(max-width:900px){
+
+    header{
+        flex-direction:column;
+        gap:10px;
+        text-align:center;
+    }
+
+    nav{
+        margin-top:10px;
+    }
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        gap:40px; /* تقليل المسافة بين المحتوى والصور */
+        padding:20px;
+    }
+
+    .content h1{
+        font-size:28px;
+        line-height:1.3;
+    }
+
+    .content p{
+        font-size:16px;
+        line-height:1.6;
+    }
+
+    .start-btn{
+        width:90%;
+        max-width:300px;
+        padding:12px 0;
+        font-size:16px;
+    }
+
+    .images{
+        flex-direction:row;
+        justify-content:center;
+        gap:15px;
+        padding:20px;
+    }
+
+    .images img{
+        width:140px;
+        height:140px;
+    }
+
+    .extra-circle{
+        display:none;
+    }
+}
+
+/* نص الحقوق */
+.credits{
+    text-align:center;
+    padding:40px 20px;
+    margin-top:0%;
+    color:#666;
+}
+
+.credits p{
+    font-size:16px;
+    line-height:1.9;
+}
+
+.credits hr{
+    width:60%;
+    margin:20px auto;
+    border:none;
+    height:1px;
+    background:#ffcc80;
+}
+</style>
+</head>
+<body>
+
+<div class="extra-circle"></div>
+
+<header>
+    <div class="logo">انتم المستقبل</div>
+    <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="sours.html">عن الموقع</a>
+        <a href="content.html">تواصل معنا</a>
+    </nav>
+</header>
+
+<section class="hero">
+
+    <div class="content">
+        <h1>تحديد التخصص الهندسي وفق الميول الدراسية</h1>
+        <p>
+        اختبار مصمم لقياس ميولك الأكاديمية وطبيعة تفكيرك التحليلي 
+        لمساعدتك في اختيار التخصص الهندسي الذي يناسبك أثناء الدراسة الجامعية.
+        </p>
+        <a href="quiz.html">
+        <button class="start-btn">  start  now </button>
+        </a>
+    </div>
+
+    <div class="images">
+        <img src="engineer1.png" alt="">
+        <img src="engineer2.png" alt="">
+    </div>
+
+</section>
+
+<footer class="credits">
+    <p>
+        <i>
+        تم تطوير هذه الصفحة وتصميمها بواسطة مطوّرة الويب <strong>شادن علي</strong> |
+        كما تم استنباط فكرة المشروع وتقديم الدعم والمساعدة من قبل طالبة الهندسة <strong>إيلان سلمان</strong>.
+        </i>
+    </p>
+
+    <hr>
+
+    <p>
+        <i>
+        The page was developed and designed by web developer <strong>Shaden Ali</strong> |
+        and the project idea was inspired and supported with the assistance of engineering student <strong>Eilan Salman</strong>.
+        </i>
+    </p>
+</footer>
+
+</body>
+</html>
