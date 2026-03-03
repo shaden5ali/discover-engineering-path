@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عن الموقع | مسارك الهندسي</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Cairo', sans-serif;
+}
+
+body{
+    background:#fffdf7;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* الدوائر الزخرفية */
+body::before{
+    content:"";
+    position:absolute;
+    width:450px;
+    height:450px;
+    left:-150px;
+    top:-150px;
+    background:radial-gradient(circle,#ffb300 0%, #ff6f00 70%);
+    border-radius:50%;
+    opacity:0.15;
+    z-index:0;
+    animation: floatSlow 8s ease-in-out infinite;
+}
+
+body::after{
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+    right:-120px;
+    bottom:-120px;
+    background:radial-gradient(circle,#ff9800 0%, #ff6f00 70%);
+    border-radius:50%;
+    opacity:0.12;
+    z-index:0;
+    animation: floatSlow 10s ease-in-out infinite;
+}
+
+@keyframes floatSlow{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-20px);}
+    100%{transform:translateY(0);}
+}
+
+/* الهيدر */
+header{
+    padding:20px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:relative;
+    z-index:2;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:800;
+    color:#ff6f00;
+}
+
+nav a{
+    text-decoration:none;
+    color:#555;
+    margin-right:20px;
+    font-weight:600;
+    position:relative;
+}
+
+nav a::after{
+    content:"";
+    position:absolute;
+    width:0;
+    height:2px;
+    background:#ff6f00;
+    bottom:-5px;
+    right:0;
+    transition:0.3s;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+/* القسم الرئيسي بدون بوكس */
+.about-section{
+    min-height:85vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:60px 20px;
+    position:relative;
+    z-index:2;
+}
+
+.about-content{
+    max-width:850px;
+    animation: fadeIn 1.5s ease;
+}
+
+.about-content h1{
+    font-size:42px;
+    color:#ff6f00;
+    margin-bottom:30px;
+}
+
+.about-content p{
+    font-size:19px;
+    color:#444;
+    line-height:2.2;
+    margin-bottom:25px;
+}
+
+.highlight{
+    color:#ff6f00;
+    font-weight:700;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* الجوال */
+@media(max-width:900px){
+    header{
+        flex-direction:column;
+        gap:10px;
+        text-align:center;
+    }
+
+    .about-content h1{
+        font-size:28px;
+    }
+
+    .about-content p{
+        font-size:16px;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+   <div class="logo">انتم المستقبل</div>
+    <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="about.html">عن الموقع</a>
+        <a href="content.html">تواصل معنا</a>
+    </nav>
+</header>
+
+<section class="about-section">
+    <div class="about-content">
+        <h1>فكرة الموقع</h1>
+
+        <p>
+        انطلقت فكرة الموقع كمبادرة من طالبات جامعة القصيم، حيث قامت الطالبة 
+        <span class="highlight">إيلان سلمان</span>
+        بطرح فكرة إنشاء اختبار مبسط يهدف إلى مساعدة طلاب الهندسة على تحديد ميولهم بين التخصصات المختلفة مثل الهندسة المدنية والهندسة الكهربائية.
+        </p>
+
+        <p>
+        وتمت المساهمة في تطوير فكرة الاختبار ومحتواه ليكون واضحًا وسهلًا ومناسبًا لطلاب السنة الأولى، بحيث يساعدهم على فهم اهتماماتهم واتخاذ قرارهم الأكاديمي بثقة.
+        </p>
+
+        <p>
+         تولّت خريجة جامعة القصيم بتخصص تطوير الويب 
+        <span class="highlight">شادن علي</span>
+        مسؤولية تصميم وتنفيذ الموقع بالكامل، وتحويل الفكرة إلى منصة تفاعلية حديثة تقدم تجربة استخدام سلسة ومميزة.
+        </p>
+
+        <p>
+        نسعى من خلال هذا الموقع إلى دعم طلاب الهندسة في رحلتهم الأكاديمية، وتمكينهم من اختيار التخصص الأنسب لهم بناءً على ميولهم واهتماماتهم.
+        </p>
+
+    </div>
+</section>
+
+</body>
+</html>
