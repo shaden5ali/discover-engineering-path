@@ -219,19 +219,21 @@ body {
 }
 
 .result-prev-btn {
-    width: 100%;
-    max-width: 600px;       
-    background-color: #17110d; 
-    color: white;
-    top: -60px;
+    width: 100%;          /* نفس عرض البوكس الأصلي */
+    max-width: 600px;     /* نفس حد البوكس */
+    top: -60px;           /* مكانه فوق البوكس */
     position: absolute;
     border-radius: 15px;
     padding: 10px 15px;
     cursor: pointer;
+    
     display: flex;
+    justify-content: center; /* <-- هنا تم التغيير */
     align-items: center;
     gap: 8px;
-    justify-content: flex-end;
+
+    background-color: #17110d; 
+    color: white;
     font-size: 16px;
     transition: 0.3s;
 }
@@ -240,6 +242,9 @@ body {
 }
 .result-prev-btn:active {
     background-color: #777;
+}
+.result-prev-btn span {
+    transform: rotate(0deg);
 }
 
 /* --- Result --- */
